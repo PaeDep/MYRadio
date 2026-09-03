@@ -1,7 +1,9 @@
 #EXTM3U
-#EXTINF:-1-1 tvg-logo="https://ms.wikipedia.org/wiki/Suria_(stesen_radio)#/media/Fail:Suria_logo-01.png", Suria FM
+#EXTINF:-1-1 tvg-logo="https://media.suria.my/wp-content/uploads/2023/07/31100922/suria-logo.png", Suria FM
 https://27223.live.streamtheworld.com/SURIA_FMAAC.aac
-
 
 #EXTINF:-1-1 tvg-logo="https://d62zl39gesnj2.cloudfront.net/stations/era/2025/era_square_updated.png", Suria FM
 https://n05-us.rcs.revma.com/crec9cmbv4uvv/5_12hts4a4zpu1002/playlist.m3u8
+
+#EXTINF:-1-1 tvg-logo="https://assets.hotfm.audio/2020/06/logo_hotfm_master.svg", HOT FM
+https://n01-us.rcs.revma.com/drakdf8mtd3vv/1_1ba7nuwcvljad02/playlist.m3u8
