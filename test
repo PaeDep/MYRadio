@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Kereta</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .player-card {
+            background-color: #1e1e1e;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+        .logo-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .station-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #00e676;
+            text-align: center;
+        }
+        audio {
+            width: 100%;
+            height: 50px;
+            outline: none;
+        }
+        .section-title {
+            width: 100%;
+            max-width: 500px;
+            font-size: 0.9rem;
+            color: #ffab00;
+            margin: 10px 0 5px 5px;
+            font-weight: bold;
+        }
+        .station-grid {
+            width: 100%;
+            max-width: 500px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .btn-station {
+            background-color: #2a2a2a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+        .btn-station:active, .btn-station.active {
+            background-color: #00e676;
+            color: #000;
+            border-color: #00e676;
+        }
+        .btn-station img {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            object-fit: contain;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Radio Kereta</div>
+
+    <!-- MAIN PLAYER CARD -->
+    <div class="player-card">
+        <div class="logo-container">
+            <img id="current-logo" src="https://media.suria.my/wp-content/uploads/2023/07/31100922/suria-logo.png" alt="Logo Radio">
+        </div>
+        <div class="station-title" id="current-title">Suria FM</div>
+        <audio id="audio-player" controls autoplay>
+            <source id="audio-source" src="https://27223.live.streamtheworld.com/SURIA_FMAAC.aac" type="audio/aac">
+            Browser anda tidak menyokong pemain audio ini.
+        </audio>
+    </div>
+
+    <!-- MELAYU STATIONS -->
+    <div class="section-title">-- MELAYU --</div>
+    <div class="station-grid">
+        <button class="btn-station active" onclick="playRadio('Suria FM', 'https://27223.live.streamtheworld.com/SURIA_FMAAC.aac', 'https://media.suria.my/wp-content/uploads/2023/07/31100922/suria-logo.png', this)">
+            <img src="https://media.suria.my/wp-content/uploads/2023/07/31100922/suria-logo.png"> Suria FM
+        </button>
+        <button class="btn-station" onclick="playRadio('Era FM', 'https://n05-us.rcs.revma.com/crec9cmbv4uvv/5_12hts4a4zpu1002/playlist.m3u8', 'https://d62zl39gesnj2.cloudfront.net/stations/era/2025/era_square_updated.png', this)">
+            <img src="https://d62zl39gesnj2.cloudfront.net/stations/era/2025/era_square_updated.png"> Era FM
+        </button>
+        <button class="btn-station" onclick="playRadio('HOT FM', 'https://n01-us.rcs.revma.com/drakdf8mtd3vv/1_1ba7nuwcvljad02/playlist.m3u8', 'https://revmedia.my/wp-content/uploads/2020/10/RMG-Website-logos-Hotfm2021.png', this)">
+            <img src="https://revmedia.my/wp-content/uploads/2020/10/RMG-Website-logos-Hotfm2021.png"> HOT FM
+        </button>
+        <button class="btn-station" onclick="playRadio('Rakita FM', 'https://22283.live.streamtheworld.com/RAKITAAAC.aac', 'https://static.mytuner.mobi/media/tvos_radios/SVzrKCccud.png', this)">
+            <img src="https://static.mytuner.mobi/media/tvos_radios/SVzrKCccud.png"> Rakita FM
+        </button>
+        <button class="btn-station" onclick="playRadio('Sinar FM', 'https://n07-us.rcs.revma.com/azatk0tbv4uvv/7_13wyqvlqxz91t02/playlist.m3u8', 'https://d62zl39gesnj2.cloudfront.net/stations/sinar/2025/sinar-square_march_2025.png', this)">
+            <img src="https://d62zl39gesnj2.cloudfront.net/stations/sinar/2025/sinar-square_march_2025.png"> Sinar FM
+        </button>
+    </div>
+
+    <!-- ENGLISH STATIONS -->
+    <div class="section-title">-- ENGLISH --</div>
+    <div class="station-grid">
+        <button class="btn-station" onclick="playRadio('Hitz FM', 'https://d62zl39gesnj2.cloudfront.net/stations/hitz/2025/hitz_square_updated.png', 'https://assets.astroaudio.com.my/brands_syok/media/uploads/logo/2026-01/hitz_square_station.png', this)">
+            <img src="https://assets.astroaudio.com.my/brands_syok/media/uploads/logo/2026-01/hitz_square_station.png"> Hitz FM
+        </button>
+    </div>
+
+    <script>
+        function playRadio(name, url, logo, btn) {
+            var player = document.getElementById('audio-player');
+            var source = document.getElementById('audio-source');
+            var title = document.getElementById('current-title');
+            var logoImg = document.getElementById('current-logo');
+
+            // Set source & details
+            source.src = url;
+            title.innerText = name;
+            logoImg.src = logo;
+
+            // Reload & Play
+            player.load();
+            player.play();
+
+            // Active button style
+            var buttons = document.querySelectorAll('.btn-station');
+            buttons.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
