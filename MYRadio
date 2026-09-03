@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1-1 tvg-logo="https://ms.wikipedia.org/wiki/Suria_(stesen_radio)#/media/Fail:Suria_logo-01.png", Suria FM
+https://27223.live.streamtheworld.com/SURIA_FMAAC.aac
+
+
+#EXTINF:-1-1 tvg-logo="https://d62zl39gesnj2.cloudfront.net/stations/era/2025/era_square_updated.png", Suria FM
+https://n05-us.rcs.revma.com/crec9cmbv4uvv/5_12hts4a4zpu1002/playlist.m3u8
